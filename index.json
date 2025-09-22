@@ -1,0 +1,31 @@
+{
+  "title": "Protecting Secrets with Infiscal",
+  "details": {
+    "intro": {
+      "text": "intro/intro.md",
+    },
+    "steps": [
+      {
+        "title": "Exposed Secrets",
+        "text": "section1/exposed.md"
+      },
+      {
+        "title": "Secret Scanning",
+        "text": "section2/scanning.md"
+      },
+      {
+        "title": "Managed Secrets",
+        "text": "section3/remedy.md"
+      }
+    ],
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "backend": {
+    "imageid": "ubuntu"
+  },
+  "interface": {
+    "layout": "ide"
+  }
+}

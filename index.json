@@ -2,7 +2,7 @@
   "title": "Protecting Secrets with Infiscal",
   "details": {
     "intro": {
-      "text": "intro/intro.md",
+      "text": "intro.md"
     },
     "steps": [
       {

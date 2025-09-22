@@ -1,0 +1,1 @@
+You have now learned how to protect your secrets using Infiscal.

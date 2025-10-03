@@ -1,29 +1,28 @@
 # Unprotected Secrets
 
-
 ## Our Scenario project
 For our scenario, lets create a small Node project that we host on GitHub repository.
 
 ```bash
 git config --global user.email "your@email.com"
 git config --global user.name "Name"
-```
+```{{exec}}
 
 Create an empty repo on Github and clone it. This is where you will host your Node application
 
 ```bash
-git clone https://github.com/<>/<repo>.git
+git clone https://github.com/<your-username>/<repo>.git
 cd <repo>
-```
+```{{copy}}
 
 Create a dummy app
 ```bash
 npm init -y
 npm pkg set type="module"
 npm install express
-```
+```{{exec}}
 
-in server.js
+create new file: `server.js`
 ```
 import express from "express";
 const app = express();
@@ -33,7 +32,7 @@ apt.get("/", (_req, res) => res.json({ok: true, secret: OUR_SECRET}));
 app.listen(PORT, () => console.log(`listening on port ${PORT}`));
 ```
 
-in .env
+create new file: `.env`
 ```bash
 OUR_SECRET="super secret secret"
 ```

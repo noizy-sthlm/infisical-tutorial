@@ -6,10 +6,10 @@ In this tutorial, you will learn why and how [secrets](https://en.wikipedia.org/
 
 By the end of this tutorial, you will have learn how to: 
 - monitor a repository for potential secret leaks; and 
-- securerly store and access them using Infisical.
+- securely store and access them using Infisical.
 
 Let's start!
 
 ---
 
-This tutorial is made for [DD2482 DevOps course](https://github.com/KTH/devops-course/pull/2827).
+_This tutorial is made for [DD2482 DevOps course](https://github.com/KTH/devops-course/pull/2827)._

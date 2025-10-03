@@ -71,19 +71,53 @@ const JWT_SECRET = "super-secret-jwt-key";
 app.get("/", (_req, res) => res.json({
   ok: true, 
   message: "Server running with hardcoded secrets",
-  hasApiKey: !!API_KEY,
-  hasDbPassword: !!DB_PASSWORD
+  apiKey: API_KEY,
+  dbPassword: DB_PASSWORD,
+  jwtSecret: JWT_SECRET
 }));
 
 app.listen(PORT, () => console.log(`listening on port ${PORT}`));
 EOF
 ```{{exec}}
 
+## Test the Vulnerable Application
+
+Let's run our application to see the hardcoded secrets in action:
+
+```bash
+npm start
+```{{exec}}
+
+The server should now be running on port 3000. You can see the output showing "listening on port 3000".
+
+## Access the Application
+
+Now let's access our application through Killercoda's traffic port accessor:
+
+1. **Open the Traffic Port Accessor**: 
+   - Click the **hamburger menu** (three horizontal lines) in the top-right corner of the Killercoda interface
+   - Select **"Traffic / Ports"** from the dropdown menu
+
+2. **Use Custom Port**: In the "Custom Ports" section, enter `3000` in the input field and click the "Access" button.
+
+3. **View the Result**: You should see a JSON response like this:
+   ```json
+   {
+     "ok": true,
+     "message": "Server running with hardcoded secrets",
+     "apiKey": "sk-1234567890abcdef",
+     "dbPassword": "mypassword123",
+     "jwtSecret": "super-secret-jwt-key"
+   }
+   ```
+
+This confirms that our application is running and has access to the hardcoded secrets we embedded in the source code.
+
 ## Commit the Vulnerable Code
 
 Now let's commit this vulnerable code to our repository:
 
-```
+```bash
 git add .
 git commit -m "deliberate secrets leak"
 git push origin main
@@ -91,4 +125,4 @@ git push origin main
 
 ## What's Next?
 
-We've successfully created a repository with hardcoded secrets. In the next section, we'll learn how to detect these secrets using Infisical's scanning capabilities.
+We've successfully created a repository with hardcoded secrets and demonstrated that the application works. In the next section, we'll learn how to detect these secrets using Infisical's scanning capabilities.

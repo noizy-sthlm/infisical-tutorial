@@ -11,11 +11,15 @@ We will create a repository on GitHub for the tutorial using GitHub CLI. _Note: 
 Below is the installation of GitHub CLI that you can follow directly on KillerCoda using Ubuntu. Please open this [installation guide](https://github.com/cli/cli#installation) for other OS.
 
 ```
-# Install GitHub CLI
+# Add GitHub CLI source
 curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
-sudo apt update
-sudo apt install gh
+apt update
+```{{exec}}
+
+```
+# Install GitHub CLI
+apt install gh -y
 ```{{exec}}
 
 ```
@@ -39,7 +43,7 @@ First, make sure that `npm´ is installed. For this Killercoda tutorial, follow 
 
 ```
 # It will take some time for the installation
-apt install npm
+apt install npm -y
 ```{{exec}}
 
 Now let's create a simple Express.js application that will demonstrate the security vulnerability. 

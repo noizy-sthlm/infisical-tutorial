@@ -16,10 +16,9 @@ curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo 
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
 ```{{exec}}
 
-```
-sudo apt update
-sudo apt install gh -y
-```{{exec}}
+`sudo apt update`{{exec}}
+
+`sudo apt install gh -y`{{exec}}
 
 ```
 # Login to GitHub (opens browser for authentication)
@@ -47,11 +46,9 @@ apt install npm
 
 Now let's create a simple Express.js application that will demonstrate the security vulnerability. 
 
-```
-npm init -y
-npm pkg set type="module"
-npm install express
-```{{exec}}
+`npm init -y`{{exec}}
+`npm pkg set type="module"`{{exec}}
+`npm install express`{{exec}}
 
 ## Add Vulnerable Code
 

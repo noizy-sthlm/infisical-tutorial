@@ -1,50 +1,79 @@
 # Unprotected Secrets
 
-(Can we use the terminal for the whole scenario?)
 
-## Our Scenario project
-For our scenario, lets create a small Node project that we host on GitHub repository.
+## Our Scenario Project
+For our scenario, let's create a small Node project that demonstrates a common security mistake: hardcoded secrets in source code. This is something that happens in real development scenarios and can lead to serious security vulnerabilities.
 
+## Quick Setup with GitHub CLI
+
+We will create a repository on GitHub for the tutorial using GitHub CLI. _Note: You can also use another method that you are more familiar with._
+
+Below is the installation of GitHub CLI that you can follow directly on KillerCoda using Ubuntu. Please open this [installation guide](https://github.com/cli/cli#installation) for other OS.
 ```
-git config --global user.email "your@email.com"
-git config --global user.name "Name"
+# Install GitHub CLI
+curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
+sudo apt update
+sudo apt install gh -y
 ```{{exec}}
 
-Create an empty repo on Github and clone it. This is where you will host your Node application
+```
+# Login to GitHub (opens browser for authentication)
+gh auth login --web
+```{{exec}}
 
 ```
-git clone https://github.com/<your-username>/<repo>.git
-cd <repo>
-```{{copy}}
+# Create and clone repository in one command
+gh repo create infisical-tutorial --public --clone
+cd infisical-tutorial
+```{{exec}}
 
-Create a dummy app
+## Create the Node.js Application
+
+Now let's create a simple Express.js application that will demonstrate the security vulnerability:
+
 ```
 npm init -y
 npm pkg set type="module"
 npm install express
 ```{{exec}}
 
-create new file: `server.js`
+## Add Vulnerable Code
+
+Let's create a server file with hardcoded secrets to demonstrate the security issue:
+
 ```
+cat > server.js << 'EOF'
 import express from "express";
 const app = express();
 const PORT = process.env.PORT || 3000;
-const OUR_SECRET = process.env.SECRET || "No_Secret";
-apt.get("/", (_req, res) => res.json({ok: true, secret: OUR_SECRET}));
+
+// ❌ BAD: Hardcoded secrets in source code
+const API_KEY = "sk-1234567890abcdef";
+const DB_PASSWORD = "mypassword123";
+const JWT_SECRET = "super-secret-jwt-key";
+
+app.get("/", (_req, res) => res.json({
+  ok: true, 
+  message: "Server running with hardcoded secrets",
+  hasApiKey: !!API_KEY,
+  hasDbPassword: !!DB_PASSWORD
+}));
+
 app.listen(PORT, () => console.log(`listening on port ${PORT}`));
-```
+EOF
+```{{exec}}
 
-create new file: `.env`
-```bash
-OUR_SECRET="super secret secret"
-```
+## Commit the Vulnerable Code
 
-Push the secret
+Now let's commit this vulnerable code to our repository:
+
+```
 git add .
-git commit -m "delibirate secrets leak"
+git commit -m "deliberate secrets leak"
 git push origin main
+```{{exec}}
 
-## Secrets Scanning
-GitHub action
+## What's Next?
 
-We will start by creating a delibirate leak and see how to detect it with Secrets Scanning.
+We've successfully created a repository with hardcoded secrets. In the next section, we'll learn how to detect these secrets using Infisical's scanning capabilities.

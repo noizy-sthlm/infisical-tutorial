@@ -129,11 +129,10 @@ git config --global user.email "you@example.com"
 git config --global user.name "Your Name"
 ```{{exec interrupt}}
 
-Now let's switch to main branch and set it as default:
+Now let's switch to main branch:
 
 ```bash
 git checkout -b main
-git push -u origin main
 ```{{exec}}
 
 Also, let's include node_modules in .gitignore to have a clean version commit.
@@ -147,7 +146,7 @@ Finally, let's commit this vulnerable code to our repository:
 ```bash
 git add .
 git commit -m "deliberate secrets leak"
-git push origin main
+git push -u origin main
 ```{{exec}}
 
 ## What's Next?

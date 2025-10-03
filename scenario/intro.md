@@ -1,5 +1,15 @@
-# Manage Secrets with Infiscal
+# Manage Secrets with Infisical
 
-### Authored by: [Fauzan Helmi Sudaryanto](https://github.com/ujanjan) & [Amin Nouiser](https://github.com/noizy-sthlm)
+#### Authored by: [Fauzan Helmi Sudaryanto](https://github.com/ujanjan) & [Amin Nouiser](https://github.com/noizy-sthlm) 
 
-In this tutorial, you will learn why and how Secrets can be protected with the help of Infiscal. By the end of this tutorial, you will have learned how to monitor a repository for secret leaks and how to securerly store and access them using Infiscal.
+In this tutorial, you will learn why and how [secrets](https://en.wikipedia.org/wiki/Key_(cryptography)) of your softwares can be protected with the help of [Infisical](https://infisical.com/). 
+
+By the end of this tutorial, you will have learn how to: 
+- monitor a repository for potential secret leaks; and 
+- securerly store and access them using Infisical.
+
+Let's start!
+
+---
+
+This tutorial is made for [DD2482 DevOps course](https://github.com/KTH/devops-course/pull/2827).

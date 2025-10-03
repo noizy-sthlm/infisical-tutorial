@@ -39,7 +39,7 @@ cd infisical-tutorial
 
 ## Create the Node.js Application
 
-First, make sure that `npm´ is installed. For this Killercoda tutorial, follow below.
+First, make sure that `npm` is installed. For this Killercoda tutorial, follow below.
 
 ```
 # It will take some time for the installation
@@ -49,7 +49,7 @@ apt install npm -y
 Now let's create a simple Express.js application that will demonstrate the security vulnerability. 
 
 ```
-npm init
+npm init -y
 npm pkg set type="module"
 npm install express
 ```{{exec}}
@@ -112,11 +112,17 @@ Now let's access our application through Killercoda's traffic port accessor:
    }
    ```
 
-This confirms that our application is running and has access to the hardcoded secrets we embedded in the source code.
+This confirms that our application is running and has access to the hardcoded secrets we embedded in the source code. Now we can do Ctrl+C to kill the process.
 
 ## Commit the Vulnerable Code
 
-Now let's commit this vulnerable code to our repository:
+Before doing our first commit, let's include node_modules in .gitignore:
+
+```bash
+echo "node_modules/" > .gitignore
+```{{exec}}
+
+Let's commit this vulnerable code to our repository:
 
 ```bash
 git add .

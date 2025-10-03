@@ -5,10 +5,21 @@ This guide walks you through setting up Infisical for secrets scanning in your r
 ## Prerequisites
 
 1. **Create Infisical Account**
-   - Sign up for a free account at [infisical.com](https://infisical.com) 
+   Sign up for a free account at [infisical.com](https://infisical.com) 
 
 2. **Install Infisical CLI**
-   - Follow the installation guide: [CLI Overview](https://infisical.com/docs/cli/overview)
+   Follow the installation guide, for this tutorial we will use [Debian/Ubuntu](https://infisical.com/docs/cli/overview#debian%2Fubuntu)
+
+   - Add Infisical repository
+   ```bash
+   curl -1sLf \
+   'https://artifacts-cli.infisical.com/setup.deb.sh' \ 
+   | sudo -E bash
+   ```{{exec}}
+
+
+
+
 
 ## Basic Scanning
 

@@ -1,22 +1,24 @@
 # Unprotected Secrets
 
+(Can we use the terminal for the whole scenario?)
+
 ## Our Scenario project
 For our scenario, lets create a small Node project that we host on GitHub repository.
 
-```bash
+```
 git config --global user.email "your@email.com"
 git config --global user.name "Name"
 ```{{exec}}
 
 Create an empty repo on Github and clone it. This is where you will host your Node application
 
-```bash
+```
 git clone https://github.com/<your-username>/<repo>.git
 cd <repo>
 ```{{copy}}
 
 Create a dummy app
-```bash
+```
 npm init -y
 npm pkg set type="module"
 npm install express

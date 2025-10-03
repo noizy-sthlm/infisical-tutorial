@@ -14,11 +14,11 @@ Below is the installation of GitHub CLI that you can follow directly on KillerCo
 # Install GitHub CLI
 curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
+
+sudo apt update
+
+sudo apt install gh -y
 ```{{exec}}
-
-`sudo apt update`{{exec}}
-
-`sudo apt install gh -y`{{exec}}
 
 ```
 # Login to GitHub (opens browser for authentication)
@@ -46,13 +46,17 @@ apt install npm
 
 Now let's create a simple Express.js application that will demonstrate the security vulnerability. 
 
-`npm init -y`{{exec}}
-`npm pkg set type="module"`{{exec}}
-`npm install express`{{exec}}
+```
+npm init -y
+
+npm pkg set type="module"
+
+npm install express
+```{{exec}}
 
 ## Add Vulnerable Code
 
-Let's create a server file ´server.js´ with hardcoded secrets to demonstrate the security issue:
+Let's create a **new** server file `server.js` with hardcoded secrets to demonstrate the security issue:
 
 ```
 cat > server.js << 'EOF'

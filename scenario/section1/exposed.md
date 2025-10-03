@@ -6,9 +6,11 @@ For our scenario, let's create a small Node project that demonstrates a common s
 
 ## Quick Setup with GitHub CLI
 
-We will create a repository on GitHub for the tutorial using GitHub CLI. _Note: You can also use another method that you are more familiar with._
+We will create a new repository on GitHub for the tutorial. 
 
-Below is the installation of GitHub CLI that you can follow directly on KillerCoda using Ubuntu. Please open this [installation guide](https://github.com/cli/cli#installation) for other OS.
+_Note: In this tutorial, we will use GitHub CLI. But you can also use another method that you are more familiar with._
+
+Below is the installation of GitHub CLI that you can follow directly on KillerCoda. Please open this [installation guide](https://github.com/cli/cli#installation) for other OS.
 
 ```
 # Add GitHub CLI source
@@ -31,6 +33,8 @@ gh auth login --web
 # Create and clone repository in one command
 gh repo create infisical-tutorial --public --clone
 ```{{exec}}
+
+Now we will use the new repository for this tutorial. Let's open it.
 
 ```
 # Open tutorial folder
@@ -112,11 +116,20 @@ Now let's access our application through Killercoda's traffic port accessor:
    }
    ```
 
-This confirms that our application is running and has access to the hardcoded secrets we embedded in the source code. Now we can do Ctrl+C to kill the process.
+This confirms that our application is running and has access to the hardcoded secrets we embedded in the source code. 
+
+Now back to the terminal, we can do Ctrl+C to kill the process.
 
 ## Commit the Vulnerable Code
 
-Before doing our first commit, let's include node_modules in .gitignore:
+First, let's configure git with our identity (required for commits):
+
+```bash
+git config --global user.email "you@example.com"
+git config --global user.name "Your Name"
+```{{exec interrupt}}
+
+Also, let's include node_modules in .gitignore to have a clean version commit.
 
 ```bash
 echo "node_modules/" > .gitignore

@@ -14,4 +14,4 @@ Let's start!
 
 _This tutorial is made for [DD2482 DevOps course](https://github.com/KTH/devops-course/pull/2827)._
 
-Debug: 3 Oct 21:14
+Debug: 3 Oct 21:28

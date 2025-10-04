@@ -22,6 +22,8 @@ apt install gh -y
 gh auth login --web
 ```{{exec}}
 
+After successful authentication, let's create the repository for the tutorial.
+
 ```
 # Create and clone repository in one command
 gh repo create infisical-tutorial --public --clone
@@ -38,10 +40,10 @@ cd infisical-tutorial
 
 First, make sure that `npm` is installed. In this Killercoda tutoral, you can click below.
 
-´´´
+```
 # It will take some time to install
 apt install npm -y
-´´´{{exec}}
+```{{exec}}
 
 Now let's create a simple Express.js application that will demonstrate the security vulnerability. 
 
@@ -120,7 +122,7 @@ First, let's configure git with our identity (required for commits):
 ```bash
 git config --global user.email "you@example.com"
 git config --global user.name "Your Name"
-```{{copy interrupt}}
+```{{exec interrupt}}
 
 Now let's switch to main branch:
 

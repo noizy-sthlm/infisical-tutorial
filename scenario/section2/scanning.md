@@ -14,7 +14,7 @@ First, we need to create a free account with Infisical to access their scanning 
 
 ### Install Infisical CLI
 
-For this tutorial, we'll install the Infisical CLI on our Ubuntu environment. The CLI allows us to run scans locally and integrate with our development workflow.
+For this tutorial, we'll install the Infisical CLI on our Ubuntu environment. The CLI allows us to run scans locally and integrate with our development workflow. Follow this [installation instructions](https://infisical.com/docs/cli/overview) for other OS.
 
 // # Add Infisical repository
 ```
@@ -99,7 +99,7 @@ Let's test our pre-commit hook by trying to commit a file with secrets:
 
 ```
 # Create a test file with a secret
-echo 'const API_KEY = "test-secret-123";' > test-secret.js
+echo 'const NEW_API_KEY = "sk-abcdefgh12345324";' > test-secret.js
 ```{{exec}}
 
 ```
@@ -124,6 +124,13 @@ To re-enable it:
 ```
 # Re-enable the pre-commit hook
 git config --bool hooks.infisical-scan true
+```{{exec}}
+
+Now for this tutorial, let's remove the test-secret.js file so we can focus on the main server.js file:
+
+```
+# Remove the test file we created earlier
+rm test-secret.js
 ```{{exec}}
 
 ## GitHub Actions Integration
@@ -195,14 +202,13 @@ git push origin main
 
 ## Verifying Your Setup
 
-Let's verify that all our security measures are working correctly.
+Let's verify that ALL our security measures are working correctly:
+- Pre-commit hook
+- Push to main branch
+- Pull request to main branch
 
 ### Test Local Scanning
 
-```
-# Clean up our test file
-rm test-secret.js
-```{{exec}}
 
 ```
 # Run a final scan to see current status

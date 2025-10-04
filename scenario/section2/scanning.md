@@ -8,25 +8,24 @@ Now that we have a repository with hardcoded secrets, let's learn how to detect 
 
 First, we need to create a free account with Infisical to access their scanning services:
 
-1. **Sign up for Infisical**
    - Visit [infisical.com](https://infisical.com) 
-   - Create a free account to get started
+   - Create a free account to get started (We recommend sign up using Europe data region)
    - This will give you access to Infisical's cloud-based scanning services
 
 ### Install Infisical CLI
 
 For this tutorial, we'll install the Infisical CLI on our Ubuntu environment. The CLI allows us to run scans locally and integrate with our development workflow.
 
+// # Add Infisical repository
 ```
-# Add Infisical repository to your system
 curl -1sLf \
-'https://artifacts-cli.infisical.com/setup.deb.sh' \ 
+'https://artifacts-cli.infisical.com/setup.deb.sh' \
 | sudo -E bash
 ```{{exec}}
 
 ```
 # Update package list and install Infisical CLI
-sudo apt-get update && sudo apt-get install -y infisical
+apt-get update && apt-get install -y infisical
 ```{{exec}}
 
 Let's verify the installation was successful:
@@ -72,9 +71,11 @@ You should see output similar to this, showing the hardcoded secrets we embedded
 
 ![local scan Infisical](infisical-local-scan.png)
 
+Now we know that our secrets is not secure 🤠
+
 ## Setting Up Pre-commit Hooks
 
-To prevent secrets from being committed in the first place, let's set up a pre-commit hook that automatically scans code before each commit.
+To prevent secrets from being committed in the first place, let's set up a [pre-commit hook](https://medium.com/@jay.gokani/pre-commit-hooks-39bb1668dc95) that automatically scans code before each commit.
 
 ### Install Pre-commit Hook
 

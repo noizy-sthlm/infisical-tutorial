@@ -120,7 +120,7 @@ First, let's configure git with our identity (required for commits):
 ```bash
 git config --global user.email "you@example.com"
 git config --global user.name "Your Name"
-```{{exec interrupt}}
+```{{copy interrupt}}
 
 Now let's switch to main branch:
 

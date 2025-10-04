@@ -40,8 +40,8 @@ First, make sure that `npm` is installed. In this Killercoda tutoral, you can cl
 
 ´´´
 # It will take some time to install
-npm install -y
-´´´
+apt install npm -y
+´´´{{exec}}
 
 Now let's create a simple Express.js application that will demonstrate the security vulnerability. 
 

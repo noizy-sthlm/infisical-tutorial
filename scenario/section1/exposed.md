@@ -36,7 +36,14 @@ cd infisical-tutorial
 
 ## Create the Node.js Application
 
-First, make sure that `npm` is installed. Now let's create a simple Express.js application that will demonstrate the security vulnerability. 
+First, make sure that `npm` is installed. In this Killercoda tutoral, you can click below.
+
+´´´
+# It will take some time to install
+npm install -y
+´´´
+
+Now let's create a simple Express.js application that will demonstrate the security vulnerability. 
 
 ```
 npm init -y

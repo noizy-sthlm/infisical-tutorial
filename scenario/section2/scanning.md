@@ -2,19 +2,9 @@
 
 Now that we have a repository with hardcoded secrets, let's learn how to detect and prevent these security vulnerabilities using Infisical's powerful scanning capabilities. This section will walk you through setting up automated secret detection in your development workflow.
 
-## Setting Up Infisical
-
-### Create Infisical Account
-
-First, we need to create a free account with Infisical to access their scanning services:
-
-   - Visit [infisical.com](https://infisical.com) 
-   - Create a free account to get started (We recommend sign up using Europe data region)
-   - This will give you access to Infisical's cloud-based scanning services
-
 ### Install Infisical CLI
 
-For this tutorial, we'll install the Infisical CLI on our Ubuntu environment. The CLI allows us to run scans locally and integrate with our development workflow. Follow this [installation instructions](https://infisical.com/docs/cli/overview) for other OS.
+For this tutorial, we'll install the Infisical CLI on our Ubuntu environment. The CLI allows us to run scans locally and integrate with our development workflow. Follow this [installation instructions](https://infisical.com/docs/cli/overview) for other OS. This step can be run without login to Infisical.
 
 // # Add Infisical repository
 ```
@@ -139,6 +129,7 @@ For continuous security monitoring, let's set up GitHub Actions to automatically
 
 ### Create GitHub Actions Workflow
 
+(add source??)
 Create a new workflow file for secret scanning:
 
 ```
@@ -203,32 +194,9 @@ git push origin main
 ## Verifying Your Setup
 
 Let's verify that ALL our security measures are working correctly:
-- Pre-commit hook
-- Push to main branch
-- Pull request to main branch
-
-### Test Local Scanning
-
-
-```
-# Run a final scan to see current status
-infisical scan --verbose
-```{{exec}}
-
-### Test Pre-commit Protection
-
-```
-# Create a new file with a secret
-echo 'const SECRET_TOKEN = "another-test-secret";' > another-test.js
-```{{exec}}
-
-```
-# Try to commit (should be blocked)
-git add another-test.js
-git commit -m "test commit"
-```{{exec}}
-
-The pre-commit hook should prevent this commit and show you the detected secret.
+- Pre-commit hook (pre-commit hook true, should be blocked in local)
+- Push to main branch (pre-commit hook false, should be blocked in github)
+- Pull request to main branch (will not do in the tutorial, but you can also check and see the merge being blocked)
 
 ### Check GitHub Actions
 
@@ -249,6 +217,7 @@ We've successfully set up a comprehensive secret scanning solution that includes
 - **Local scanning** with the Infisical CLI
 - **Pre-commit hooks** to prevent secrets from being committed
 - **GitHub Actions** for continuous monitoring
-- **Detailed reporting** to help identify and remediate issues
 
-In the next section, we'll learn how to properly handle secrets using Infisical's secret management features, replacing our hardcoded secrets with secure alternatives.
+This will help both solo or team development to scan vulnerabilities early on.
+
+In the next section, we'll learn how to properly handle secrets using Infisical's secret management features, replacing our hardcoded secrets with more secure alternatives.

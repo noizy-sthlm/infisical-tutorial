@@ -33,10 +33,10 @@ infisical scan
 
 This scans your git history for the current repository and allerts you for any commited secrets.
 
-To scan files instead of commits, use:
+To scan your directory instead of commit history, use:
 
 ```bash
-infisical scan --no-git --verbose
+infisical scan --no-git
 ```{{exec}}
 
 ### Detailed Scan Results
@@ -50,10 +50,10 @@ infisical scan --verbose
 
 The `--verbose` flag provides additional context about each finding, including:
 - The file containing the secret
-- The line number and surrounding code
+- The line number
 - The type of secret detected
 
-Note that Infiscal did not detect all of our secrets! We will come back to that. It did however catch one, which is better than none 🤠
+Note that Infiscal did not detect all of our secrets! We will come back to that in the end. It did however catch one, which is better than none 🤠
 
 ## Setting Up Pre-commit Hooks
 
@@ -98,7 +98,7 @@ rm test-secret.js
 
 ### Managing the Pre-commit Hook
 
-If you need to temporarily disable the pre-commit hook:
+If you ever want to temporarily disable the pre-commit hook:
 
 ```
 # Disable the pre-commit hook
@@ -114,7 +114,7 @@ git config --bool hooks.infisical-scan true
 
 ## GitHub Actions Integration
 
-For continuous security monitoring, let's set up GitHub Actions to automatically scan our repository on every push and pull request.
+For continuous security monitoring, let's set up GitHub Actions to automatically scan our repository on every push.
 
 ### Create GitHub Actions Workflow
 
@@ -165,26 +165,19 @@ EOF
 
 This workflow will:
 - Trigger on pushes and pull requests to the main branch
-- Run a scan of the repository
+- Run a scan on the branch
 - Display the results in the Actions logs
 
 ### Commit and Push the Workflow
 
-```
+```bash
 # Add and commit the workflow file
 git add .github/workflows/secret-scanning.yml
 git commit -m "Add GitHub Actions secret scanning workflow"
 git push origin main
 ```{{exec}}
 
-## Verifying Your Setup
-
-Let's verify that ALL our security measures are working correctly:
-- Pre-commit hook (pre-commit hook true, should be blocked in local)
-- Push to main branch (pre-commit hook false, should be blocked in github)
-- Pull request to main branch (will not do in the tutorial, but you can also check and see the merge being blocked)
-
-### Check GitHub Actions
+The workflow should fail and detect the previously commited secret.
 
 1. **View the Workflow Run**:
    - Go to your GitHub repository
@@ -195,6 +188,13 @@ Let's verify that ALL our security measures are working correctly:
 2. **Review the Results**:
    - The workflow should detect the hardcoded secrets in your `server.js` file
    - Check the logs to see the detailed scan report
+
+## Verifying Your Setup
+
+Let's verify that ALL our security measures are working correctly:
+- Pre-commit hook (should prevent commits containing secrets)
+- Secret scanner workflow (Should detect any pushed secrets)
+- Pull request to main branch (will not do in the tutorial, but you can try to open a PR with commited secrets and see that the it fails)
 
 ## What's Next?
 

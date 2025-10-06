@@ -22,9 +22,7 @@ Once you've created your account:
    - Name it `infisical-tutorial` (or any name you prefer)
    - Choose `Secrets Management`
 
-2. **Set Up Environments**:
-   - Create two environments: `dev` and `prod`
-   - This allows us to have different secrets for development and production
+<img src="./CreateProject.png" style="width: 300px">
 
 ## Adding Secrets to Infisical
 
@@ -32,7 +30,7 @@ Now let's add the secrets that will replace our hardcoded ones from Section 1.
 
 ### Add Development Environment Secrets
 
-In your Infisical project, navigate to the **dev** environment and add these secrets:
+In your newly created project, click on *+ Add Secret* and add this set of secrets:
 
 ```
 API_KEY = "sk-1234567890abcdef-DEV"
@@ -40,9 +38,15 @@ DB_PASSWORD = "mypassword123-DEV"
 JWT_SECRET = "super-secret-jwt-key-DEV"
 ```
 
+Make sure that they are created in the *Development* Environment.
+
+<img src="./CreateSecret.png" style="width: 300px">
+
+This allows us to store different sets of keys for different development stages.
+
 ### Add Production Environment Secrets
 
-Switch to the **prod** environment and add these secrets:
+Add another set of keys for the *production* environment:
 
 ```
 API_KEY = "sk-1234567890abcdef-PROD"
@@ -51,6 +55,8 @@ JWT_SECRET = "super-secret-jwt-key-PROD"
 ```
 
 Now you notice that we have different keys set for different environment.
+
+<img src="./SecretSet.png" style="width: 300px">
 
 ## Updating Our Application Code
 
@@ -181,8 +187,7 @@ git commit -m "Replace hardcoded secrets with environment variables"
 git push origin main
 ```{{exec}}
 
-you can see that the-pre commit hook didnt trigger.
-also, we successfully merged into main.
+Notice that the-pre commit hook didnt trigger any allert this time.
 
 ## Verifying Security Improvements
 

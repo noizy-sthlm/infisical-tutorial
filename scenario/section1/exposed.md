@@ -88,7 +88,7 @@ Let's run our application to see the hardcoded secrets in action:
 npm start
 ```{{exec}}
 
-The server should now be running on port 3000. You can see the output showing "listening on port 3000".
+The server should now be running on port 3000 [(Open in New Tab)]({{TRAFFIC_HOST1_3000}}). You can see the output showing "listening on port 3000".
 
 ## Access the Application
 

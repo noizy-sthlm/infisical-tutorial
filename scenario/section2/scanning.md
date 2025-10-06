@@ -4,28 +4,19 @@ Now that we have a repository with hardcoded secrets, let's learn how to detect 
 
 ### Install Infisical CLI
 
-For this tutorial, we'll install the Infisical CLI on our Ubuntu environment. The CLI allows us to run scans locally and integrate with our development workflow. Follow this [installation instructions](https://infisical.com/docs/cli/overview) for other OS. This step can be run without login to Infisical.
+For this tutorial, we'll install the Infisical CLI in our environment. The CLI allows us to run local scans and integrate with our development workflow. Follow this [installation instructions](https://infisical.com/docs/cli/overview) for other OS.
 
-// # Add Infisical repository
-```
+
+```bash
 curl -1sLf \
 'https://artifacts-cli.infisical.com/setup.deb.sh' \
 | sudo -E bash
-```{{exec}}
-
-```
 # Update package list and install Infisical CLI
 apt-get update && apt-get install -y infisical
-```{{exec}}
-
-Let's verify the installation was successful:
-
-```
-# Check Infisical version
+# Verify installation
 infisical --version
 ```{{exec}}
 
-You should see output showing the installed version of Infisical CLI.
 
 ## Running Your First Scan
 
@@ -33,7 +24,7 @@ Now let's scan our repository to detect the hardcoded secrets we created in the 
 
 ### Basic Scan
 
-Let's start with a basic scan to see what Infisical can detect:
+Start with a basic scan to see what Infisical can detect:
 
 ```
 # Run initial scan on current directory
@@ -52,16 +43,11 @@ infisical scan --verbose
 ```{{exec}}
 
 The `--verbose` flag provides additional context about each finding, including:
-- The specific file where the secret was found
+- The file containing the secret
 - The line number and surrounding code
 - The type of secret detected
-- A confidence score for the detection
 
-You should see output similar to this, showing the hardcoded secrets we embedded in our `server.js` file:
-
-![local scan Infisical](infisical-local-scan.png)
-
-Now we know that our secrets is not secure 🤠
+Note that Infiscal did not detect all of our secrets! We will come back to that. It did however catch one, which is better than none 🤠
 
 ## Setting Up Pre-commit Hooks
 
@@ -78,10 +64,6 @@ This command will:
 - Create a git pre-commit hook
 - Configure it to run Infisical scans before each commit
 - Prevent commits that contain detected secrets
-
-You should see a success message confirming the hook was installed:
-
-![pre-commit-hook](pre-commit-hook.png)
 
 ### Test the Pre-commit Hook
 
@@ -129,8 +111,7 @@ For continuous security monitoring, let's set up GitHub Actions to automatically
 
 ### Create GitHub Actions Workflow
 
-(add source??)
-Create a new workflow file for secret scanning:
+Create a new workflow for secret scanning:
 
 ```
 # Create the workflow directory
@@ -177,9 +158,7 @@ EOF
 
 This workflow will:
 - Trigger on pushes and pull requests to the main branch
-- Install the Infisical CLI in the GitHub Actions environment
-- Run a comprehensive scan of the repository
-- Generate a detailed report of any findings
+- Run a scan of the repository
 - Display the results in the Actions logs
 
 ### Commit and Push the Workflow

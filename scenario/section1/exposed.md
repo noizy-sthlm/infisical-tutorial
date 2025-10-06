@@ -38,7 +38,7 @@ cd infisical-tutorial
 
 ## Create the Node.js Application
 
-First, make sure that `npm` is installed. In this Killercoda tutoral, you can click below.
+First, make sure that `npm` is installed.
 
 ```
 # It will take some time to install
@@ -88,18 +88,9 @@ Let's run our application to see the hardcoded secrets in action:
 npm start
 ```{{exec}}
 
-The server should now be running on port 3000 [(Open in New Tab)]({{TRAFFIC_HOST1_3000}}). You can see the output showing "listening on port 3000".
+The server should now be running on [(port 3000)]({{TRAFFIC_HOST1_3000}}).
 
-## Access the Application
-
-Now let's access our application through Killercoda's traffic port accessor:
-
-1. **Open the Traffic Port Accessor**: 
-   - Click the **hamburger menu** (three horizontal lines) in the top-right corner of the Killercoda interface
-   - Select **"Traffic / Ports"** from the dropdown menu
-
-2. **Use Custom Port**: In the "Custom Ports" section, enter `3000` in the input field and click the "Access" button.
-
+You should see the json object with our secrets.
 3. **View the Result**: You should see a JSON response like this:
    ```json
    {
@@ -111,9 +102,7 @@ Now let's access our application through Killercoda's traffic port accessor:
    }
    ```
 
-This confirms that our application is running and has access to the hardcoded secrets we embedded in the source code. 
-
-Now back to the terminal, we can do Ctrl+C to kill the process.
+Ctrl+C kills the process.
 
 ## Commit the Vulnerable Code
 

@@ -53,7 +53,7 @@ The `--verbose` flag provides additional context about each finding, including:
 - The line number
 - The type of secret detected
 
-Note that Infiscal did not detect all of our secrets! We will come back to that in the end. It did however catch one, which is better than none 🤠
+Note that Infiscal did not detect all of our secrets! It did however catch one, which is better than none 🤠 By default, Infisical catches the most common secrets, but, when using custom formats, it may be necessary to customize your scan (see [Configuration file](https://infisical.com/docs/cli/scanning-overview#configuration-file))
 
 ## Setting Up Pre-commit Hooks
 

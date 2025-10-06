@@ -40,7 +40,7 @@ JWT_SECRET = "super-secret-jwt-key-DEV"
 
 Make sure that they are created in the *Development* Environment.
 
-<img src="./CreateSecret.png" style="width: 300px">
+<img src="./CreateSecret.png" style="width: 350px">
 
 This allows us to store different sets of keys for different development stages.
 
@@ -56,7 +56,7 @@ JWT_SECRET = "super-secret-jwt-key-PROD"
 
 Now you notice that we have different keys set for different environment.
 
-<img src="./SecretSet.png" style="width: 300px">
+<img src="./SecretSet.png" style="width: 350px">
 
 ## Updating Our Application Code
 
@@ -115,6 +115,8 @@ cd infisical-tutorial
 infisical init
 ```{{exec}}
 
+Select the project that you created.
+
 This command will:
 - Connect your local project to your Infisical project
 - Create a `.infisical` configuration file
@@ -133,21 +135,7 @@ Let's start the application using the development environment secrets:
 infisical run --env=dev npm start
 ```{{exec}}
 
-You should see the application start and display the development secrets in the response.
-
-### Test the Application
-
-1. **Access the Application**: Use the Traffic Port Accessor (port 3000) as we did in Section 1
-2. **Verify Secrets**: You should see a JSON response with the development environment secrets:
-   ```json
-   {
-     "ok": true,
-     "message": "Server running with secure secrets from Infisical",
-     "apiKey": "sk-1234567890abcdef-DEV",
-     "dbPassword": "mypassword123-DEV",
-     "jwtSecret": "super-secret-jwt-key-DEV"
-   }
-   ```
+You should see the application start and display the development secrets in the response [(port 3000)]({{TRAFFIC_HOST1_3000}}).
 
 Stop the server with `Ctrl+C` when you're done testing.
 
@@ -160,16 +148,7 @@ Now let's test with the production environment:
 infisical run --env=prod npm start
 ```{{exec}}
 
-Access the application again and verify that you now see the production secrets:
-   ```json
-   {
-     "ok": true,
-     "message": "Server running with secure secrets from Infisical",
-     "apiKey": "sk-1234567890abcdef-PROD",
-     "dbPassword": "mypassword123-PROD",
-     "jwtSecret": "super-secret-jwt-key-PROD"
-   }
-   ```
+Access the application again [(port 3000)]({{TRAFFIC_HOST1_3000}}) and verify that you now see the production secrets.``
 
 ## Committing Secure Code
 
@@ -198,7 +177,7 @@ Let's run a final scan to confirm our secrets are no longer exposed:
 infisical scan --verbose
 ```{{exec}}
 
-You should see that no secrets are detected in the scan results, confirming that our application is now secure. HOORAY
+You should see that no new secrets are detected in the scan results, confirming that our application is now secure. The only allert is for the secret that we deliberately commited in the beginning of this tutorial. HOORAY
 
 ## What We've Accomplished
 

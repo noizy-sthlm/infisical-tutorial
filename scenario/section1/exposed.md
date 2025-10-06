@@ -91,16 +91,6 @@ npm start
 The server should now be running on [(port 3000)]({{TRAFFIC_HOST1_3000}}).
 
 You should see the json object with our secrets.
-3. **View the Result**: You should see a JSON response like this:
-   ```json
-   {
-     "ok": true,
-     "message": "Server running with hardcoded secrets",
-     "apiKey": "sk-1234567890abcdef",
-     "dbPassword": "mypassword123",
-     "jwtSecret": "super-secret-jwt-key"
-   }
-   ```
 
 Ctrl+C kills the process.
 

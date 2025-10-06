@@ -18,9 +18,9 @@ First, we need to create a free account with Infisical to access their secret ma
 Once you've created your account:
 
 1. **Create a New Project**: 
-   - Click "Create Project" or "New Project"
+   - Click "Add New Project"
    - Name it `infisical-tutorial` (or any name you prefer)
-   - Choose your preferred data region
+   - Choose `Secrets Management`
 
 2. **Set Up Environments**:
    - Create two environments: `dev` and `prod`

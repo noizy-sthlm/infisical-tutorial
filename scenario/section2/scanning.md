@@ -31,7 +31,13 @@ Start with a basic scan to see what Infisical can detect:
 infisical scan
 ```{{exec}}
 
-This command will scan all files in the current directory and subdirectories for potential secrets.
+This scans your git history for the current repository and allerts you for any commited secrets.
+
+To scan files instead of commits, use:
+
+```bash
+infisical scan --no-git --verbose
+```{{exec}}
 
 ### Detailed Scan Results
 
@@ -82,6 +88,14 @@ git commit -m "test commit with secret"
 
 The pre-commit hook should detect the secret and prevent the commit, showing you the scan results and blocking the commit until the secret is removed.
 
+Let's remove the test-secret.js file so we can focus on the main server.js file:
+
+```
+# Remove the test file we created earlier
+git restore --staged .
+rm test-secret.js
+```{{exec}}
+
 ### Managing the Pre-commit Hook
 
 If you need to temporarily disable the pre-commit hook:
@@ -96,13 +110,6 @@ To re-enable it:
 ```
 # Re-enable the pre-commit hook
 git config --bool hooks.infisical-scan true
-```{{exec}}
-
-Now for this tutorial, let's remove the test-secret.js file so we can focus on the main server.js file:
-
-```
-# Remove the test file we created earlier
-rm test-secret.js
 ```{{exec}}
 
 ## GitHub Actions Integration
@@ -191,7 +198,7 @@ Let's verify that ALL our security measures are working correctly:
 
 ## What's Next?
 
-We've successfully set up a comprehensive secret scanning solution that includes:
+We've successfully set up a working secret scanning solution that includes:
 
 - **Local scanning** with the Infisical CLI
 - **Pre-commit hooks** to prevent secrets from being committed

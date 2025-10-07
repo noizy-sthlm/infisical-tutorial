@@ -33,9 +33,20 @@ Now let's add the secrets that will replace our hardcoded ones from Section 1.
 In your newly created project, click on *+ Add Secret* and add this set of secrets:
 
 ```
-API_KEY = "sk-1234567890abcdef-DEV"
-DB_PASSWORD = "mypassword123-DEV"  
-JWT_SECRET = "super-secret-jwt-key-DEV"
+# Secret 1
+Key = API_KEY
+Value = sk-1234567890abcdef-DEV
+Environments = Development
+
+# Secret 2
+Key =  DB_PASSWORD
+Value = mypassword123-DEV
+Environments = Development
+
+# Secret 3
+Key = JWT_SECRET
+Value = super-secret-jwt-key-DEV
+Environments = Development
 ```
 
 Make sure that they are created in the *Development* Environment.
@@ -46,12 +57,25 @@ This allows us to store different sets of keys for different development stages.
 
 ### Add Production Environment Secrets
 
-Add another set of keys for the *production* environment:
+Now we have created the keys, we will add another set for the *production* environment. Expand each of the keys and we can easily add the values.
+
+<img src="./AddProductionKey.png" style="width: 350px">
 
 ```
-API_KEY = "sk-1234567890abcdef-PROD"
-DB_PASSWORD = "mypassword123-PROD"
-JWT_SECRET = "super-secret-jwt-key-PROD"
+# Secret 1
+Key = API_KEY
+Value = sk-1234567890abcdef-PROD
+Environments = Production
+
+# Secret 2
+Key =  DB_PASSWORD
+Value = mypassword123-PROD
+Environments = Production
+
+# Secret 3
+Key = JWT_SECRET
+Value = super-secret-jwt-key-PROD
+Environments = Production
 ```
 
 Now you notice that we have different keys set for different environment.
@@ -103,12 +127,7 @@ infisical login
 
 ### Initialize Infisical in Your Project
 
-Navigate to your project directory and initialize Infisical:
-
-```
-# Make sure we're in the tutorial directory, if not:
-cd infisical-tutorial
-```{{exec}}
+Make sure we're in the tutorial directory so we can initialize Infisical:
 
 ```
 # Initialize Infisical in the current directory
@@ -135,9 +154,11 @@ Let's start the application using the development environment secrets:
 infisical run --env=dev npm start
 ```{{exec}}
 
-You should see the application start and display the development secrets in the response [(port 3000)]({{TRAFFIC_HOST1_3000}}).
+You should now see information that Infisical has injected secrets into the application process!
 
-Stop the server with `Ctrl+C` when you're done testing.
+Let's see if our page correctly displays the keys for Development environment we have set up: see [(port 3000)]({{TRAFFIC_HOST1_3000}}).
+
+Did it succeed? 😁 Stop the server with `Ctrl+C` in the terminal when you're done testing.
 
 ### Run with Production Environment
 
@@ -146,9 +167,11 @@ Now let's test with the production environment:
 ```
 # Run the application with prod environment secrets
 infisical run --env=prod npm start
-```{{exec}}
+```{{exec interrupt}}
 
-Access the application again [(port 3000)]({{TRAFFIC_HOST1_3000}}) and verify that you now see the production secrets.``
+Secrets from Production environment should be injected by now.
+
+Let's access the application again [(port 3000)]({{TRAFFIC_HOST1_3000}}) and verify that you now see the production secrets.
 
 ## Committing Secure Code
 
@@ -166,7 +189,9 @@ git commit -m "Replace hardcoded secrets with environment variables"
 git push origin main
 ```{{exec}}
 
-Notice that the-pre commit hook didnt trigger any allert this time.
+Notice that the-pre commit hook didn't trigger any alert this time. 
+
+And we have also passed the check in GitHub Action and the code successfully merged into `main` branch!
 
 ## Verifying Security Improvements
 
@@ -177,7 +202,7 @@ Let's run a final scan to confirm our secrets are no longer exposed:
 infisical scan --verbose
 ```{{exec}}
 
-You should see that no new secrets are detected in the scan results, confirming that our application is now secure. The only allert is for the secret that we deliberately commited in the beginning of this tutorial. HOORAY
+You should see that no new secrets are detected in the scan results, confirming that our application is now secure. The only allert is for the secret that we deliberately commited in the beginning of this tutorial.
 
 ## What We've Accomplished
 

@@ -57,13 +57,13 @@ The `--verbose` flag provides additional context about each finding, including:
 - The line number
 - The type of secret detected
 
-Note that Infiscal did not detect all of our secrets! It did however catch one, which is better than none 🤠 By default, Infisical catches the most common secrets, but, when using custom formats, it may be necessary to customize your scan (see [Configuration file](https://infisical.com/docs/cli/scanning-overview#configuration-file))
+Note that Infiscal did not detect all of our secrets! It did however catch one, which is better than none 🤠 By default, Infisical catches the most common secrets, but, when using custom formats, it may be necessary to customize your scan (see [Configuration file](https://infisical.com/docs/cli/scanning-overview#configuration-file)).
 
 ## Setting Up Pre-commit Hooks
 
 To prevent secrets from being committed in the first place, let's set up a [pre-commit hook](https://medium.com/@jay.gokani/pre-commit-hooks-39bb1668dc95) that automatically scans code before each commit.
 
-### Install Pre-commit Hook
+### Install Infisical Pre-commit Hook
 
 ```
 # Install the pre-commit scanning hook
@@ -77,12 +77,14 @@ This command will:
 
 ### Test the Pre-commit Hook
 
-Let's test our pre-commit hook by trying to commit a file with secrets:
+Let's test our pre-commit hook by trying to create a new file with secrets `test-secret.js`:
 
 ```
 # Create a test file with a secret
 echo 'const NEW_API_KEY = "sk-abcdefgh12345324";' > test-secret.js
 ```{{exec}}
+
+And now let's commit it.
 
 ```
 # Try to commit the file (this should be blocked)
@@ -92,10 +94,10 @@ git commit -m "test commit with secret"
 
 The pre-commit hook should detect the secret and prevent the commit, showing you the scan results and blocking the commit until the secret is removed.
 
-Let's remove the test-secret.js file so we can focus on the main server.js file:
+Let's remove the `test-secret.js` file so we can focus on the main `server.js` file we created earlier:
 
 ```
-# Remove the test file we created earlier
+# Remove the test file
 git restore --staged .
 rm test-secret.js
 ```{{exec}}
@@ -198,7 +200,7 @@ The workflow should fail and detect the previously commited secret.
 Let's verify that ALL our security measures are working correctly:
 - Pre-commit hook (should prevent commits containing secrets)
 - Secret scanner workflow (Should detect any pushed secrets)
-- Pull request to main branch (will not do in the tutorial, but you can try to open a PR with commited secrets and see that the it fails)
+- Pull request to main branch (will not do in this tutorial, but you can try to open a PR with commited secrets and see that it will fail)
 
 ## What's Next?
 

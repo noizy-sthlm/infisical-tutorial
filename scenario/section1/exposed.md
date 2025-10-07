@@ -92,7 +92,7 @@ The server should now be running on [(port 3000)]({{TRAFFIC_HOST1_3000}}).
 
 You should see the json object with our secrets.
 
-Ctrl+C kills the process.
+Ctrl+C in the terminal kills the process.
 
 ## Commit the Vulnerable Code
 
@@ -103,13 +103,13 @@ git config --global user.email "you@example.com"
 git config --global user.name "Your Name"
 ```{{exec interrupt}}
 
-Now let's switch to main branch:
+Now let's switch to `main` branch:
 
 ```bash
 git checkout -b main
 ```{{exec}}
 
-Also, let's include node_modules in .gitignore to have a clean version commit.
+Also, let's include `node_modules` folder in `.gitignore` to have a clean version commit.
 
 ```bash
 echo "node_modules/" > .gitignore

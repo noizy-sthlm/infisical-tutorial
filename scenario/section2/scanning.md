@@ -13,10 +13,14 @@ curl -1sLf \
 | sudo -E bash
 # Update package list and install Infisical CLI
 apt-get update && apt-get install -y infisical
+```{{exec}}
+
+Next, we can check if Infisical is properly installed.
+
+```bash
 # Verify installation
 infisical --version
 ```{{exec}}
-
 
 ## Running Your First Scan
 
@@ -31,7 +35,7 @@ Start with a basic scan to see what Infisical can detect:
 infisical scan
 ```{{exec}}
 
-This scans your git history for the current repository and allerts you for any commited secrets.
+This scans your git history for the current repository and alerts you for any commited secrets.
 
 To scan your directory instead of commit history, use:
 

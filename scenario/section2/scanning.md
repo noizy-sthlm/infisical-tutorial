@@ -195,12 +195,15 @@ The workflow should fail and detect the previously commited secret.
    - The workflow should detect the hardcoded secrets in your `server.js` file
    - Check the logs to see the detailed scan report
 
+<img src="./SecretScanning.png" style="width: 350px">
+<br />
+
 ## Verifying Your Setup
 
-Let's verify that ALL our security measures are working correctly:
+You can do some other variations check to ensure that all of the security measures are working correctly:
 - Pre-commit hook (should prevent commits containing secrets)
-- Secret scanner workflow (Should detect any pushed secrets)
-- Pull request to main branch (will not do in this tutorial, but you can try to open a PR with commited secrets and see that it will fail)
+- Secret scanner workflow (should detect any pushed secrets)
+- Pull request to main branch (will not be covered in this tutorial, but you can try to open a PR with commited secrets and see that it will fail)
 
 ## What's Next?
 

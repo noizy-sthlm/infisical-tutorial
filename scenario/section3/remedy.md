@@ -23,6 +23,7 @@ Once you've created your account:
    - Choose `Secrets Management`
 
 <img src="./CreateProject.png" style="width: 300px">
+<br />
 
 ## Adding Secrets to Infisical
 
@@ -52,16 +53,16 @@ Environments = Development
 Make sure that they are created in the *Development* Environment.
 
 <img src="./CreateSecret.png" style="width: 350px">
-
+<br />
 
 This allows us to store different sets of keys for different development stages.
 
 ### Add Production Environment Secrets
 
-Now we have created the keys, we will add another set for the *production* environment. Expand each of the keys and we can easily add the values.
+Now we will add another set for the *production* environment. Expand each of the keys we just created and we can easily add the values for production.
 
 <img src="./AddProductionKey.png" style="width: 350px">
-
+<br />
 
 ```
 # Secret 1
@@ -83,7 +84,7 @@ Environments = Production
 Now you notice that we have different keys set for different environment.
 
 <img src="./SecretSet.png" style="width: 350px">
-
+<br />
 
 ## Updating Our Application Code
 
@@ -142,7 +143,7 @@ Select the project that you created.
 
 This command will:
 - Connect your local project to your Infisical project
-- Create a `.infisical` configuration file
+- Create a `.infisical.json` configuration file
 - Set up the project structure for secret management
 
 ## Testing Secure Secret Management
@@ -195,7 +196,7 @@ git push origin main
 
 Notice that the-pre commit hook didn't trigger any alert this time. 
 
-And we have also passed the check in GitHub Action and the code successfully merged into `main` branch!
+And you can also see that we have passed the check in GitHub Action and the code successfully merged into `main` branch!
 
 ## Verifying Security Improvements
 

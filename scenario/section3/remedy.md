@@ -53,6 +53,7 @@ Make sure that they are created in the *Development* Environment.
 
 <img src="./CreateSecret.png" style="width: 350px">
 
+
 This allows us to store different sets of keys for different development stages.
 
 ### Add Production Environment Secrets
@@ -60,6 +61,7 @@ This allows us to store different sets of keys for different development stages.
 Now we have created the keys, we will add another set for the *production* environment. Expand each of the keys and we can easily add the values.
 
 <img src="./AddProductionKey.png" style="width: 350px">
+
 
 ```
 # Secret 1
@@ -81,6 +83,7 @@ Environments = Production
 Now you notice that we have different keys set for different environment.
 
 <img src="./SecretSet.png" style="width: 350px">
+
 
 ## Updating Our Application Code
 

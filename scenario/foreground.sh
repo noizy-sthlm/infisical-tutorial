@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# install npm
-sudo apt install npm -y
-
 # install nodejs
 # https://deb.nodesource.com/
 curl -fsSL https://deb.nodesource.com/setup_22.x | bash -

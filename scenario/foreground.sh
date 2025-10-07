@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # install npm
-apt install npm -y
+sudo apt install npm -y
 
 # install nodejs
 # https://deb.nodesource.com/

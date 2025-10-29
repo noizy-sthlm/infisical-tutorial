@@ -6,9 +6,15 @@ In this tutorial, you will learn why and how [secrets](https://en.wikipedia.org/
 
 **Prerequisites:** This tutorial requires free accounts for [GitHub](https://github.com) and [Infisical](https://infisical.com) to demonstrate real-world secret management workflows.
 
-By the end of this tutorial, you will have learned how to: 
-- monitor a repository for potential secret leaks; and 
-- securely store and access them using Infisical.
+## 🎓 Learning Outcomes
+
+By the end of this tutorial, you will be able to:
+
+1. **Identify and assess** security risks of hardcoded secrets in source code and version control systems
+2. **Implement automated secret scanning** in local development workflows and CI/CD pipelines
+3. **Apply secret management best practices** using centralized secret storage and environment-based configuration
+4. **Integrate security controls** into DevOps workflows through pre-commit hooks and automated scanning
+5. **Manage secrets across environments** (development, staging, production) following the principle of least privilege
 
 Let's start!
 

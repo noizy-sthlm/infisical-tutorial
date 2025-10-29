@@ -115,36 +115,6 @@ app.get("/", (_req, res) => res.json({
   jwtSecret: JWT_SECRET
 }));
 
-// 🎉 Easter egg: Environment-aware hidden endpoint
-app.get("/2827", (_req, res) => {
-  const isDev = ENVIRONMENT === "dev";
-  const isProd = ENVIRONMENT === "prod";
-  
-  if (isDev) {
-    return res.json({
-      secret: "🧙‍♂️ You're in DEV mode!",
-      funFact: "The first computer 'bug' was an actual moth found trapped in a Harvard Mark II computer in 1947. Grace Hopper taped it in her logbook with the note: 'First actual case of bug being found.' 🦋",
-      infisicalMagic: "Notice how this endpoint now knows which environment you're in? That's the power of Infisical injecting environment-specific variables!",
-      challenge: "🎁 Try running the server in PROD mode and visit this endpoint again - it will show different content!"
-    });
-  } else if (isProd) {
-    return res.json({
-      secret: "🏭 You're in PRODUCTION mode!",
-      funFact: "Netflix's 'Chaos Monkey' randomly terminates production instances to ensure their systems can survive failures. That's DevOps confidence! 🐵 They even have a whole 'Simian Army' of tools testing different failure scenarios.",
-      achievement: "🏆 Achievement Unlocked: Secret Management Master!",
-      congratulations: "You've completed the tutorial AND discovered how the same code behaves differently across environments. This is exactly why proper secret management with tools like Infisical is crucial!",
-      bonusTrivia: "Infisical is open-source and was created because developers were tired of secrets scattered across .env files, sticky notes, and Slack messages. The name combines 'infrastructure' + 'fiscal' (because leaked secrets cost money!) 💰"
-    });
-  } else {
-    return res.json({
-      secret: "🤔 Environment unknown",
-      hint: "Are you running this with Infisical? Try: NODE_ENV=dev infisical run --env=dev npm start",
-      reminder: "This endpoint shows different content based on your environment!",
-      debug: `Current NODE_ENV: ${ENVIRONMENT}`
-    });
-  }
-});
-
 app.listen(PORT, () => console.log(`listening on port ${PORT}`));
 EOF
 ```{{exec}}

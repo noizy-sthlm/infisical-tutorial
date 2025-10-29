@@ -55,8 +55,6 @@ First, make sure that `npm` is installed.
 
 ```
 # It will take some time to install
-curl -fsSL https://deb.nodesource.com/setup_22.x | bash -
-apt install nodejs -y
 apt install npm -y
 ```{{exec}}
 

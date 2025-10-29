@@ -104,7 +104,7 @@ const PORT = process.env.PORT || 3000;
 const API_KEY = process.env.API_KEY;
 const DB_PASSWORD = process.env.DB_PASSWORD;
 const JWT_SECRET = process.env.JWT_SECRET;
-const ENVIRONMENT = process.env.INFISICAL_ENVIRONMENT || "unknown";
+const ENVIRONMENT = process.env.NODE_ENV || "unknown";
 
 app.get("/", (_req, res) => res.json({
   ok: true, 
@@ -138,8 +138,9 @@ app.get("/2827", (_req, res) => {
   } else {
     return res.json({
       secret: "🤔 Environment unknown",
-      hint: "Are you running this with Infisical? Try: infisical run --env=dev npm start",
-      reminder: "This endpoint shows different content based on your environment!"
+      hint: "Are you running this with Infisical? Try: NODE_ENV=dev infisical run --env=dev npm start",
+      reminder: "This endpoint shows different content based on your environment!",
+      debug: `Current NODE_ENV: ${ENVIRONMENT}`
     });
   }
 });
@@ -186,7 +187,7 @@ Let's start the application using the development environment secrets:
 
 ```
 # Run the application with dev environment secrets
-infisical run --env=dev npm start
+NODE_ENV=dev infisical run --env=dev npm start
 ```{{exec}}
 
 You should now see information that Infisical has injected secrets into the application process!
@@ -205,7 +206,7 @@ Now let's test with the production environment:
 
 ```
 # Run the application with prod environment secrets
-infisical run --env=prod npm start
+NODE_ENV=prod infisical run --env=prod npm start
 ```{{exec interrupt}}
 
 Secrets from Production environment should be injected by now.

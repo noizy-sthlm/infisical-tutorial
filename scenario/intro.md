@@ -1,8 +1,6 @@
 # Manage Secrets with Infisical
 
-#### Authored by: [Fauzan Helmi Sudaryanto](https://github.com/ujanjan) & [Amin Nouiser](https://github.com/noizy-sthlm) 
-
-## 🚨 Why This Matters for DevOps
+### Motivation
 
 DevOps is all about speed and automation. But this speed becomes a security risk when secrets aren't managed properly. In this tutorial, you'll learn how to protect [secrets](https://en.wikipedia.org/wiki/Key_(cryptography)) using [Infisical](https://infisical.com/) and prevent one of the most common vulnerabilities: hardcoded credentials in source code.
 
@@ -24,7 +22,7 @@ For example:
 - **[Snowflake (2024)](https://cloudsecurityalliance.org/blog/2025/05/07/unpacking-the-2024-snowflake-data-breach)**: Stolen credentials compromised **160+ organizations** including Ticketmaster and Santander.
 - **[AWS Credential Leak (2024)](https://www.techradar.com/pro/security/aws-customers-hit-by-major-cyberattack-which-then-stored-stolen-credentials-in-plain-sight)**: Misconfigured cloud instances exposed credentials and source code that attackers stored in plain sight.
 
-## 🎓 Learning Outcomes
+### Learning Outcomes
 
 By the end of this tutorial, you will be able to:
 
@@ -34,7 +32,7 @@ By the end of this tutorial, you will be able to:
 4. **Store** secrets securely using centralized secret management
 5. **Manage** environment-specific secrets (dev, staging, production)
 
-## Prerequisites
+### Prerequisites
 
 You'll need free accounts for [GitHub](https://github.com) and [Infisical](https://infisical.com). We'll guide you through the setup.
 
@@ -42,4 +40,4 @@ Let's start!
 
 ---
 
-_This tutorial is made for [DD2482 DevOps course](https://github.com/KTH/devops-course/pull/2827)._
+_This tutorial is authored by [Fauzan Helmi Sudaryanto](https://github.com/ujanjan) & [Amin Nouiser](https://github.com/noizy-sthlm) for [DD2482 DevOps course](https://github.com/KTH/devops-course/pull/2827)._

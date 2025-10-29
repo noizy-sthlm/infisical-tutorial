@@ -51,14 +51,7 @@ cd infisical-tutorial
 
 ## Create the Node.js Application
 
-First, make sure that `npm` is installed.
-
-```
-# It will take some time to install
-apt install npm -y
-```{{exec}}
-
-Now let's create a simple Express.js application that will demonstrate the security vulnerability. 
+Let's create a simple Express.js application that will demonstrate the security vulnerability. 
 
 ```
 npm init -y

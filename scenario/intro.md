@@ -39,8 +39,9 @@ By the end of this tutorial, you will be able to:
 You'll need free accounts for [GitHub](https://github.com) and [Infisical](https://infisical.com). We'll guide you through the setup.
 
 Estimated time for the entire tutorial: 45-60 minutes.
+
 Let's start!
 
----
+<hr>
 
 _This tutorial is authored by [Fauzan Helmi Sudaryanto](https://github.com/ujanjan) & [Amin Nouiser](https://github.com/noizy-sthlm) for [DD2482 DevOps course](https://github.com/KTH/devops-course/pull/2827)._

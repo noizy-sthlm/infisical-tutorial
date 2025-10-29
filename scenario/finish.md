@@ -2,9 +2,14 @@
 
 You have now learned how to protect your secrets using Infisical! 
 
-By the end of this tutorial, you have learned how to:
-- monitor a repository for potential secret leaks; and 
-- securely store and access them using Infisical.
+## 🎓 What You've Learned
+
+By completing this tutorial, you've learned how to:
+- **Identify** the risks of hardcoded secrets in source code
+- **Detect** exposed secrets using Infisical's scanning tools
+- **Prevent** secret leaks with pre-commit hooks and CI/CD integration
+- **Store** secrets securely using centralized secret management
+- **Manage** environment-specific secrets (dev vs. production)
 
 This tutorial covered only a small part of what Infisical can do. If you are more interested, look at their capabilities here: [Infisical Documentation](https://infisical.com/docs/documentation/getting-started/overview)
 

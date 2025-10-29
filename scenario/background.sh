@@ -110,43 +110,80 @@ TEMPLATE_EOF
 cat > /tmp/.easter-egg-monitor.sh << 'MONITOR_EOF'
 #!/bin/bash
 
+# Track which files we've already processed
+declare -A processed_files
+
 # Function to inject easter egg into server.js
 inject_easter_egg() {
-    local target_dir="$1"
-    local server_file="$target_dir/server.js"
+    local server_file="$1"
     
-    # Wait a moment to ensure file is fully written
-    sleep 0.5
+    # Check if we've already processed this file
+    if [[ -n "${processed_files[$server_file]}" ]]; then
+        return
+    fi
     
     # Check if file exists and doesn't already have the easter egg
-    if [[ -f "$server_file" ]] && ! grep -q "/2827" "$server_file"; then
-        # Determine which template to use based on file content
-        if grep -q "process.env.API_KEY" "$server_file"; then
-            # Section 3: Secure version
-            cp /tmp/.easter-egg-templates/server-section3.js "$server_file"
-        else
-            # Section 1: Vulnerable version
-            cp /tmp/.easter-egg-templates/server-section1.js "$server_file"
-        fi
+    if [[ ! -f "$server_file" ]] || grep -q "/2827" "$server_file"; then
+        return
     fi
+    
+    # Wait a moment to ensure file is fully written
+    sleep 1
+    
+    # Create a backup
+    cp "$server_file" "${server_file}.bak"
+    
+    # Determine which easter egg to inject based on file content
+    if grep -q "process.env.API_KEY" "$server_file"; then
+        # Section 3: Secure version with environment-aware easter egg
+        # Use the template file and replace the entire server.js
+        cp /tmp/.easter-egg-templates/server-section3.js "$server_file"
+    else
+        # Section 1: Vulnerable version with basic easter egg
+        cp /tmp/.easter-egg-templates/server-section1.js "$server_file"
+    fi
+    
+    # Mark this file as processed
+    processed_files[$server_file]=1
+    
+    echo "Easter egg injected into $server_file"
 }
 
-# Monitor for server.js creation in any infisical-tutorial directory
+# Initial check for existing server.js files
+for dir in /root/infisical-tutorial /home/*/infisical-tutorial; do
+    if [[ -d "$dir" ]]; then
+        server_file="$dir/server.js"
+        if [[ -f "$server_file" ]]; then
+            inject_easter_egg "$server_file"
+        fi
+    fi
+done
+
+# Monitor for server.js creation/modification using inotifywait
 while true; do
-    # Find all infisical-tutorial directories
+    # Monitor both /root and /home directories for infisical-tutorial
+    inotifywait -q -e close_write,moved_to,create -r /root /home 2>/dev/null | while read -r directory event filename; do
+        # Check if the event is for server.js in an infisical-tutorial directory
+        if [[ "$filename" == "server.js" ]] && [[ "$directory" == *"infisical-tutorial"* ]]; then
+            server_file="${directory}${filename}"
+            inject_easter_egg "$server_file"
+        fi
+    done
+    
+    # Fallback: Also do periodic checks every 3 seconds
+    sleep 3
     for dir in /root/infisical-tutorial /home/*/infisical-tutorial; do
         if [[ -d "$dir" ]]; then
-            # Check if server.js was just created
-            if [[ -f "$dir/server.js" ]]; then
-                inject_easter_egg "$dir"
+            server_file="$dir/server.js"
+            if [[ -f "$server_file" ]]; then
+                inject_easter_egg "$server_file"
             fi
         fi
     done
-    sleep 2
 done
 MONITOR_EOF
 
 chmod +x /tmp/.easter-egg-monitor.sh
 
 # Start the monitoring script in the background
-nohup /tmp/.easter-egg-monitor.sh > /dev/null 2>&1 &
+nohup /tmp/.easter-egg-monitor.sh > /tmp/easter-egg-monitor.log 2>&1 &

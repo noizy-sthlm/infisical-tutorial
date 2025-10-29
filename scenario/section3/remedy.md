@@ -162,7 +162,11 @@ You should now see information that Infisical has injected secrets into the appl
 
 Let's see if our page correctly displays the keys for Development environment we have set up: see [(port 3000)]({{TRAFFIC_HOST1_3000}}).
 
-Did it succeed? 😁 Stop the server with `Ctrl+C` in the terminal when you're done testing.
+Did it succeed? 😁 
+
+**💡 Pro tip:** If you discovered any hidden paths in Section 1, try visiting them again now. Something interesting might have changed...
+
+Stop the server with `Ctrl+C` in the terminal when you're done testing.
 
 ### Run with Production Environment
 
@@ -176,6 +180,8 @@ infisical run --env=prod npm start
 Secrets from Production environment should be injected by now.
 
 Let's access the application again [(port 3000)]({{TRAFFIC_HOST1_3000}}) and verify that you now see the production secrets.
+
+**🎁 Bonus:** If you've been exploring beyond the main path, try visiting any hidden routes again while in production mode. You might notice environment-specific behavior!
 
 ## Committing Secure Code
 

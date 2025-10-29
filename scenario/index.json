@@ -2,7 +2,9 @@
   "title": "Protecting Secrets with Infisical",
   "details": {
     "intro": {
-      "text": "intro.md"
+      "text": "intro.md",
+      "foreground": "foreground.sh",
+      "background": "background.sh"
     },
     "steps": [
       {

@@ -105,6 +105,8 @@ The server should now be running on [(port 3000)]({{TRAFFIC_HOST1_3000}}).
 
 You should see the json object with our secrets.
 
+**🔍 Curious explorer?** Developers often hide things in paths like `/health`, `/status`, or maybe some pull request number? 👀
+
 Ctrl+C in the terminal kills the process.
 
 ## Commit the Vulnerable Code

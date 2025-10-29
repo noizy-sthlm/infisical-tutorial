@@ -2,7 +2,9 @@
 
 ### Introduction
 
-DevOps is all about speed and automation. But this speed becomes a security risk when secrets aren't managed properly. In this tutorial, you'll learn how to protect [secrets](https://en.wikipedia.org/wiki/Key_(cryptography)) using [Infisical](https://infisical.com/) and prevent one of the most common vulnerabilities: hardcoded credentials in source code.
+DevOps is all about speed and automation. But this speed becomes a security risk when secrets aren't managed properly. In this tutorial, you'll learn how to protect secrets using [Infisical](https://infisical.com/) and prevent one of the most common vulnerabilities: hardcoded credentials in source code.
+
+But first of all, what are secrets? Secrets are API keys, passwords, database credentials, JWT tokens, private keys, OAuth tokens, encryption keys - anything that grants access to  systems or data. They're called "secrets" because they should never be public.
 
 Secrets can appear everywhere in the DevOps loop:
 
@@ -36,6 +38,7 @@ By the end of this tutorial, you will be able to:
 
 You'll need free accounts for [GitHub](https://github.com) and [Infisical](https://infisical.com). We'll guide you through the setup.
 
+Estimated time for the entire tutorial: 45-60 minutes.
 Let's start!
 
 ---

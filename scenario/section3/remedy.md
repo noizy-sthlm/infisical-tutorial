@@ -2,7 +2,7 @@
 
 Now that we've learned how to detect secrets, let's implement a proper solution for managing them securely. In this section, we'll replace our hardcoded secrets with Infisical's secure secret management system, allowing us to store secrets safely and access them at runtime.
 
-## Setting Up Infisical Account
+## Setting Up An Infisical Account
 
 ### Create Your Infisical Account
 
@@ -133,7 +133,7 @@ infisical login
 
 ### Initialize Infisical in Your Project
 
-Make sure we're in the tutorial directory so we can initialize Infisical:
+Make sure that you're in the tutorial directory so that you can initialize Infisical:
 
 ```
 # Initialize Infisical in the current directory
@@ -164,7 +164,7 @@ You should now see information that Infisical has injected secrets into the appl
 
 Let's see if our page correctly displays the keys for Development environment we have set up: see [(port 3000)]({{TRAFFIC_HOST1_3000}}).
 
-Did it succeed? 😁 
+Did it succeed? 😁
 
 **💡 Pro tip:** If you discovered any hidden paths in Section 1, try visiting them again now. Something interesting might have changed...
 
@@ -201,20 +201,20 @@ git commit -m "Replace hardcoded secrets with environment variables"
 git push origin main
 ```{{exec}}
 
-Notice that the-pre commit hook didn't trigger any alert this time. 
+Notice that the-pre commit hook didn't alert us about any new secrets this time.
 
-And you can also see that we have passed the check in GitHub Action and the code successfully merged into `main` branch!
+As for the Github action, it will fail, but not for what we just pushed but for the initial leak that still lives in our commit history. In addition to adopting secret tools such as infiiscal and rotating secrets, one would have to rebase or [reset](https://www.datacamp.com/tutorial/git-reset-revert-tutorial) the commit history. This would prevent the github action from failing in the future. 
 
 ## Verifying Security Improvements
 
 Let's run a final scan to confirm our secrets are no longer exposed:
 
 ```
-# Run Infisical scan to verify no secrets are detected
-infisical scan --verbose
+# Run a Infisical scan to verify no secrets are detected
+infisical scan --no-git
 ```{{exec}}
 
-You should see that no new secrets are detected in the scan results, confirming that our application is now secure. The only allert is for the secret that we deliberately commited in the beginning of this tutorial.
+You should see that no new secrets are detected in the scan results, confirming that our application is now secure.
 
 ## What We've Accomplished
 

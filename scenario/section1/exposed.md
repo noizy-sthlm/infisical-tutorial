@@ -1,17 +1,17 @@
 # Unprotected Secrets
 
 ## Our Scenario Project
-For our scenario, let's create a small Node project that demonstrates a common security mistake: hardcoded secrets in source code. This is something that happens in real development scenarios and can lead to serious security vulnerabilities.
+For this scenario, let's create a small Node project that demonstrates a common security mistake: hardcoded secrets in source code. This is something that happens in real development scenarios and can lead to serious security vulnerabilities.
 
 ## Why This Happens
 
-Hardcoded secrets are the #1 cause of credential leaks. Here's the typical path:
+A typical path that leads up to the vulnerabiltiy is:
 
-1. Developer adds a secret for "quick testing"
-2. Forgets to remove it before committing
-3. Pushes to GitHub 
-4. Automated bots scan public repos 24/7
-5. Attackers find and use credentials within hours
+1. A developer adds a secret for "quick testing"
+2. Pushes the secret to a public repository
+3. The developer forgets to rotate their secret and to adopt proper security workflows
+
+The secret is publicly available for anyone to see. Therefore, if the mistake is not noticed early enough, attackers may find and exploit the leak.
 
 **The DevOps connection**: Rapid deployment cycles mean less time for security reviews. One shortcut can expose your entire infrastructure.
 

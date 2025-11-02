@@ -198,12 +198,13 @@ The workflow should fail and detect the previously commited secret.
 <img src="./SecretScanning.png" style="width: 350px">
 <br />
 
-## Verifying Your Setup
+## Complementary scans
 
-You can do some other variations check to ensure that all of the security measures are working correctly:
-- Pre-commit hook (should prevent commits containing secrets)
-- Secret scanner workflow (should detect any pushed secrets)
-- Pull request to main branch (will not be covered in this tutorial, but you can try to open a PR with commited secrets and see that it will fail)
+The :
+- Pre-commit hook should prevent commits from ever beeing commited in the first place
+- A GitHub Workflow detects any secrets that where not caught by any pre-commit hooks (A developer may bypass it for various reasons)
+
+In a real repository, contributions may be made as a push or as pull requests which is why a scan workflow may need to be triggered on both (Pull requests will not be covered in this tutorial, but you can try to open one with commited secrets and see that it is detected)
 
 ## What's Next?
 

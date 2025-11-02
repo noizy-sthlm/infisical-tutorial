@@ -2,11 +2,11 @@
 
 ### Introduction
 
-DevOps is all about speed and automation. But this speed becomes a security risk when secrets aren't managed properly. In this tutorial, you'll learn how to protect secrets using [Infisical](https://infisical.com/) and prevent one of the most common vulnerabilities: hardcoded credentials in source code.
+DevOps promotes speed and automation. But speed may become a security risk if secrets aren't managed properly. In this tutorial, you'll learn how to protect secrets using [Infisical](https://infisical.com/) and prevent one of the most common vulnerabilities: hardcoded credentials in source code.
 
-But first of all, what are secrets? Secrets are API keys, passwords, database credentials, JWT tokens, private keys, OAuth tokens, encryption keys - anything that grants access to  systems or data. They're called "secrets" because they should never be public.
+But first of all, what are secrets? Secrets include API keys, passwords, database credentials, JWT tokens, private keys, OAuth tokens, encryption keys - anything piece of data that should never be publicly shared.
 
-Secrets can appear everywhere in the DevOps loop:
+Secrets can appear everywhere in a DevOps cycle:
 
 <img src="./devops-loop.png" style="width: 350px">
 
@@ -16,7 +16,7 @@ For example:
 - **Deploy**: CI/CD pipelines need credentials to push to production
 - **Operate**: Services communicate using tokens and keys
 
-**The problem:** One exposed secret can compromise your entire workflow.
+**The problem:** One exposed secret can risk your entire workflow.
 
 ### Real Examples
 
@@ -28,11 +28,11 @@ For example:
 
 By the end of this tutorial, you will be able to:
 
-1. **Identify** security risks of hardcoded secrets in source code
+1. **Understand** security risks of hardcoded secrets in source code
 2. **Detect** exposed secrets using automated scanning tools
 3. **Prevent** secret leaks with pre-commit hooks and CI/CD integration
 4. **Store** secrets securely using centralized secret management
-5. **Manage** environment-specific secrets (dev, staging, production)
+5. **Manage** stage-specific secrets (development, staging, production)
 
 ### Prerequisites
 

@@ -5,11 +5,11 @@ You have now learned how to protect your secrets using Infisical!
 ## 🎓 What You've Learned
 
 By completing this tutorial, you've learned how to:
-- **Identify** the risks of hardcoded secrets in source code
-- **Detect** exposed secrets using Infisical's scanning tools
+- **Understand** security risks of hardcoded secrets in source code
+- **Detect** exposed secrets using automated scanning tools
 - **Prevent** secret leaks with pre-commit hooks and CI/CD integration
 - **Store** secrets securely using centralized secret management
-- **Manage** environment-specific secrets (dev vs. production)
+- **Manage** stage-specific secrets (dev vs. production)
 
 **🎉 Did you explore beyond the tutorial?** If you tried visiting different paths on the running servers, you might have discovered some hidden surprises that demonstrated environment-aware behavior. Curiosity is a developer's best friend!
 

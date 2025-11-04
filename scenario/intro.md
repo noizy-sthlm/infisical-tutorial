@@ -32,7 +32,7 @@ By following this tutorial, you learn how to:
 2. **Detect** exposed secrets using automated scanning tools
 3. **Prevent** secret leaks with pre-commit hooks and CI/CD integration
 4. **Store** secrets securely using centralized secret management
-5. **Manage** stage-specific secrets (development, staging, production)
+5. **Manage** stage-specific secrets (dev vs. production)
 
 ### Prerequisites
 

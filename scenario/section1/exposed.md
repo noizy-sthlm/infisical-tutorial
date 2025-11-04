@@ -17,7 +17,7 @@ The secret is publicly available for anyone to see. Therefore, if the mistake is
 
 Let's see how easy it is to make this mistake...
 
-<img src="./divider.png" style="width: 350px">
+<img src="./hr.png" style="width: 350px">
 
 ## Quick Setup with GitHub CLI
 

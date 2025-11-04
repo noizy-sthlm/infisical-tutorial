@@ -6,7 +6,7 @@ Scanning tools catch mistakes after they happen, but true security requires a pr
 
 Now that we've learned how to detect secrets, let's implement a proper solution for managing them securely. In this section, we'll replace our hardcoded secrets with Infisical's secure secret management system.
 
-<img src="./divider.png" style="width: 350px">
+<img src="./hr.png" style="width: 350px">
 
 ## Setting Up An Infisical Account
 

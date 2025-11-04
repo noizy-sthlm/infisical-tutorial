@@ -1,8 +1,8 @@
 # Secrets Scanning with Infisical
 
-Now that we have a repository with hardcoded secrets, we need a way to detect and prevent these security vulnerabilities. The reality is that developers work fast, and mistakes happen, especially under deadline pressure. A secret might be added for "quick testing," pushed to the repository, and forgotten about until it's too late.
+Now that we have a repository with hardcoded secrets, we need a way to detect and prevent these security vulnerabilities. Developers work fast, and mistakes could happen. A secret might be added for "quick testing," pushed to the repository, and forgotten about until it's too late.
 
-**The DevOps connection**: As teams scale and deployment cycles accelerate, manual code reviews become impractical. We need automated tools that catch vulnerabilities before they reach production. Secret scanning can help to detecct exposed credentials in your codebase and git history, alerting you to risks before attackers can exploit them.
+**The DevOps connection**: As teams scale and deployment cycles accelerate, manual code reviews become impractical. We need automated tools that catch vulnerabilities before they reach production. Secret scanning detects exposed credentials in your codebase and git history, alerting you to risks before attackers can exploit them.
 
 In this section, we'll learn how to use Infisical's scanning capabilities to set up automated secret detection in your development workflow.
 

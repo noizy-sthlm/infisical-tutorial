@@ -1,6 +1,6 @@
 # Secure Secrets Management with Infisical
 
-Scanning tools catch mistakes after they happen, but true security requires a proactive approach: secrets should never be in source code to begin with.
+Scanning tools catch mistakes after they happen, but true security requires a proactive approach as secrets should never be in source code to begin with.
 
 **The DevOps solution**: Instead of hardcoding or scattering secrets across `.env` files, we use a secret management platform that stores credentials securely and injects them at runtime. This way, secrets live outside your codebase entirely, and different environments (development, staging, production) can have their own secret sets.
 

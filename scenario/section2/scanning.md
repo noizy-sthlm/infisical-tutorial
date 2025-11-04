@@ -6,6 +6,8 @@ Now that we have a repository with hardcoded secrets, we need a way to detect an
 
 In this section, we'll learn how to use Infisical's scanning capabilities to set up automated secret detection in your development workflow.
 
+<img src="./divider.png" style="width: 350px">
+
 ### Install Infisical CLI
 
 For this tutorial, we'll install the Infisical CLI in our environment. The CLI allows us to run local scans and integrate with our development workflow. Follow this [installation instructions](https://infisical.com/docs/cli/overview) for other OS.

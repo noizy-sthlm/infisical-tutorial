@@ -21,7 +21,7 @@ For example:
 ### Real Examples
 
 - **[Hugging Face (2024)](https://huggingface.co/blog/space-secrets-disclosure)**: Attackers accessed their Spaces platform and stole API tokens, forcing a mass revocation of user credentials.
-- **[Snowflake (2024)](https://cloudsecurityalliance.org/blog/2025/05/07/unpacking-the-2024-snowflake-data-breach)**: Stolen credentials compromised 160+ organizations including Ticketmaster and Santander.
+- **[Snowflake (2024)](https://cloudsecurityalliance.org/blog/2025/05/07/unpacking-the-2024-snowflake-data-breach)**: Stolen credentials compromised 100+ organizations including Ticketmaster and Santander.
 - **[AWS Credential Leak (2024)](https://www.techradar.com/pro/security/aws-customers-hit-by-major-cyberattack-which-then-stored-stolen-credentials-in-plain-sight)**: Misconfigured cloud instances exposed credentials and source code that attackers stored in plain sight.
 
 ### Learning Outcomes

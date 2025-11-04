@@ -1,6 +1,10 @@
 # Secure Secrets Management with Infisical
 
-Now that we've learned how to detect secrets, let's implement a proper solution for managing them securely. In this section, we'll replace our hardcoded secrets with Infisical's secure secret management system, allowing us to store secrets safely and access them at runtime.
+Scanning tools catch mistakes after they happen, but true security requires a proactive approach: secrets should never be in source code to begin with.
+
+**The DevOps solution**: Instead of hardcoding or scattering secrets across `.env` files, we use a secret management platform that stores credentials securely and injects them at runtime. This way, secrets live outside your codebase entirely, and different environments (development, staging, production) can have their own secret sets.
+
+Now that we've learned how to detect secrets, let's implement a proper solution for managing them securely. In this section, we'll replace our hardcoded secrets with Infisical's secure secret management system.
 
 ## Setting Up An Infisical Account
 

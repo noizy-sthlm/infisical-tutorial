@@ -26,7 +26,7 @@ For example:
 
 ### Learning Outcomes
 
-By the end of this tutorial, you will be able to:
+By following this tutorial, you learn how to:
 
 1. **Understand** security risks of hardcoded secrets in source code
 2. **Detect** exposed secrets using automated scanning tools
@@ -44,4 +44,4 @@ Let's start!
 
 <hr>
 
-_This tutorial is authored by [Fauzan Helmi Sudaryanto](https://github.com/ujanjan) & [Amin Nouiser](https://github.com/noizy-sthlm) for [DD2482 DevOps course](https://github.com/KTH/devops-course/pull/2827)._
+_This tutorial is co-authored by [Fauzan Helmi Sudaryanto](https://github.com/ujanjan) & [Amin Nouiser](https://github.com/noizy-sthlm) for [DD2482 DevOps course](https://github.com/KTH/devops-course/pull/2827)._

